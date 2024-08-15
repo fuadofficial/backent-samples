@@ -11,6 +11,7 @@ const userList = [
 ]
 
 const server = http.createServer((req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*')
     switch (req.url) {
         case ('/'):
             fs.readFile('text.txt', 'utf-8', (err, data) => {
