@@ -1,13 +1,10 @@
 const express = require('express')
 const app = express()
-const userList = [
-    { name: 'fuad' },
-    { name: 'aju' },
-    { name: 'kappu' },
-]
+const movieList = require('./movie.json')
+
 
 app.get('/', (req, res) => {
-    res.json(userList)
+    res.json(movieList)
 })
 
 
