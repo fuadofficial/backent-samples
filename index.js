@@ -7,14 +7,17 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    console.log(req.query);
-    
-    res.json(movieList)
+    const { movieName } = req.query;
+    const filterMovies = movieList.filter(movie => movie.title.toLocaleLowerCase().includes(movieName.toLocaleLowerCase()))
+    res.json({
+        results: filterMovies
+    })
 })
+
 app.post('/', (req, res) => {
-    console.log(req.body);
+    console.log(req.body)
     res.json(movieList)
 })
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`server running on ${PORT}`)) 
+const PORT = 3000
+app.listen(PORT, () => console.log(`server running on ${PORT}`))
