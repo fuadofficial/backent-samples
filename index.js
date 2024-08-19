@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 const movieList = require('./movie.json')
-const cors = require('cors')
+// const cors = require('cors')
 
-app.use(cors())
+// app.use(cors())
 app.use(express.json())
 
 app.get('/api/movies', (req, res) => {
@@ -20,9 +20,9 @@ app.get('/api/movies', (req, res) => {
 })
 
 app.post('/api/movies', (req, res) => {
-    const { movieName, movieId } = req.body
+    const { movieName } = req.body
     movieList.push({
-        id: movieId,
+        id: Date.now(),
         title: movieName,
         poster_path: '',
     })
