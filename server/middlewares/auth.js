@@ -4,7 +4,9 @@ const checkAuth = (req, res, next) => {
     if (auth) {
         return next();
     }
-    console.log("user not login . please login");
+    res.status(401).json({
+        message: "user not longin"
+    })
 };
 
 module.exports = { checkAuth }
