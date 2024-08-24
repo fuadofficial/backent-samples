@@ -5,7 +5,7 @@ const checkAuth = (req, res, next) => {
         return next();
     }
     res.status(401).json({
-        message: "user not longin"
+        message: "your authentication false !"
     })
 };
 

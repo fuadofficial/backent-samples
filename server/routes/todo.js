@@ -4,13 +4,13 @@ const { checkAuth } = require("../middlewares/auth");
 
 route.get("/", (req, res) => {
     res.json({
-        message: "hy",
+        message: "normal get method",
     });
 });
 
 route.post("/", checkAuth, (req, res) => {
     return res.json({
-        message: "success",
+        message: "your post is successsully",
     });
 });
 
