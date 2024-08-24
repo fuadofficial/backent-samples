@@ -9,8 +9,15 @@ route.get("/", (req, res) => {
 });
 
 route.post("/", checkAuth, (req, res) => {
-    return res.json({
-        message: "your post is successsully",
+    const { todo } = req.body;
+
+    if (!("todo" in req.body)) {
+        return res.status(400).json({
+            message: "undifined todo",
+        });
+    }
+    res.json({
+        message: "your post of todo is successsully",
     });
 });
 
