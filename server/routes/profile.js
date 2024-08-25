@@ -7,4 +7,4 @@ route.get("/", (req, res) => {
     });
 });
 
-module.exports = route
+module.exports = {route}

@@ -1,18 +1,24 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
-const todoRoute = require('./routes/todo')
-const { main } = require("./middlewares/main");
+const cors = require("cors");
+const todoRoute = require('./routes/todo');
+const profileRoute = require('./routes/profile');
+const main = require("./middlewares/main");
+const errorHandle = require("./middlewares/errorHandle"); // Import directly
 
+// Middlewares
 app.use(cors());
 app.use(express.json());
-app.use(main)
+app.use(main);
 
-//normal method call route
-app.use('/api/todo', todoRoute)
+// Routes
+app.use('/api/todo', todoRoute);
+app.use('/api/profile', profileRoute);
 
-//anoter method call route
-app.use('/api/profile', require('./routes/profile'))
+// Error handling middleware
+console.log(typeof errorHandle);
+app.use(errorHandle); // Ensure errorHandle is a function
 
+// Server port
 const PORT = 5000;
-app.listen(PORT, () => console.log(`server running on ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));

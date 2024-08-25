@@ -5,7 +5,7 @@ const checkAuth = (req, res, next) => {
         return next();
     }
     res.status(401).json({
-        message: "your authentication false !"
+        message: "your authentication faile !"
     })
 };
 
