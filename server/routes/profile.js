@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/upload", upload.single, (req, res) => {
+router.post("/upload", upload.single('upload_file'), (req, res) => {
     console.log(req.body);
     console.log(req.file);
 
