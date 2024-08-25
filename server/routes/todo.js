@@ -1,14 +1,14 @@
-const express = require('express')
-const route = express.Router()
+const express = require('express');
+const router = express.Router();
 const { checkAuth } = require("../middlewares/auth");
 
-route.get("/", (req, res) => {
+router.get("/", (req, res) => {
     res.json({
         message: "normal get method",
     });
 });
 
-route.post("/", checkAuth, (req, res, next) => {
+router.post("/", checkAuth, (req, res, next) => {
     const { todo } = req.body;
 
     if (!("todo" in req.body)) {
@@ -27,4 +27,4 @@ route.post("/", checkAuth, (req, res, next) => {
     });
 });
 
-module.exports = route
+module.exports = router
