@@ -17,12 +17,10 @@ const App = () => {
         formData.append('firstName', 'fuad')
 
         try {
-            const response = await axios(API_URL, {
-                method: 'POST',
+            const response = await axios.post(API_URL, formData, {
                 headers: {
-                    "Content-Type": "mulipart/form-data",
+                    "Content-Type": "multipart/form-data",
                 },
-                data: formData
             })
             console.log(response.data)
         } catch (error) {
