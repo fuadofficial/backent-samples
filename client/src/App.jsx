@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const App = () => {
-  return (
-    <div>
-      <h1>Home page</h1>
-    </div>
-  )
+    const [image, setImage] = useState('')
+
+    const handleImage = (event) => {
+        setImage(URL.createObjectURL(event.target.files[0]))
+    }
+
+    const uploadImage = () => {
+
+    }
+
+    return (
+        <div>
+            <img src={image} alt="" style={{ width: '200px', height: 'auto' }} />
+            <input type="file" accept='image/*' onChange={handleImage} />
+            <button onClick={uploadImage}>Upload</button>
+        </div>
+    )
 }
 
 export default App
