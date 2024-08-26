@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
     res.json({
-        message: "This is profile page",
+        message: "public/images/upload_files-1724631066139-772970639.jpg"
     });
 });
 
