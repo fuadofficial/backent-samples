@@ -2,8 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const todoRoute = require('./routes/todo');
 const profileRoute = require('./routes/profile');
-const {main} = require("./middlewares/main");
-const {errorHandle} = require("./middlewares/errorHandle");
+const { main } = require("./middlewares/main");
+const { errorHandle } = require("./middlewares/errorHandle");
 
 const app = express();
 
